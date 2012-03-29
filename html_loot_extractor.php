@@ -77,7 +77,7 @@ else
 				if ($pickpocketloot=="0")
 				{
 					$file=fopen("PickpocketCode.sql", "a+");
-					fwrite($file, "\n{$executes['entry']}\n");
+					fwrite($file, "\n{$executes['entry']}");
 					fclose($file);
 				}
 			}
