@@ -5,16 +5,31 @@ error_reporting(0);
 
 include 'connect.php';
 
-// Choose: 1: loot, 2: pickpocketloot, 3:skinloot, 4:worth
-$Choose=1;
-
 // Worth
 $multipler1=1/10; // mingold=gold * $multipler1
 $multipler2=2; // maxgold=gold* $multipler2
-
-
-
-if ($Choose == 1)
+?>
+<form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<title>Controller</title>
+<p>Choose a tip of loot</p>
+<select name="Controller">
+<option value="0">--</option>
+<option value="1">Loot</option>
+<option value="2">Pickpocketloot</option>
+<option value="3">Skinloot</option>
+<option value="4">Worth</option>
+</select>
+<p><input type="submit" value="Choose"></p>
+</form>
+<?php
+$connect=mysql_connect ($mysql_host, $mysql_username, $mysql_password);
+$connectdb=mysql_select_db("$database", $connect);
+$Choose=$_POST['Controller'];
+if($Choose==0)
+{
+    echo "You must select a option!";
+}
+elseif ($Choose == 1)
 {
     $queryloots=mysql_query("SELECT entry FROM creature_template WHERE entry IN (SELECT id FROM creature WHERE id IN (SELECT entry FROM creature_template WHERE entry>0 AND lootid=0)) ORDER BY entry;");
     while ($executes=mysql_fetch_array($queryloots, MYSQL_ASSOC))
