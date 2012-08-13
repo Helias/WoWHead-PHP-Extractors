@@ -5,13 +5,14 @@ error_reporting(0);
 ?>
 <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <title>Controller</title>
-<p>Choose a tip of loot</p>
+<p>Choose an option</p>
 <select name="Controller">
 <option value="0">--</option>
 <option value="1">Loot</option>
 <option value="2">Pickpocketloot</option>
 <option value="3">Skinloot</option>
 <option value="4">Worth</option>
+<option value="5">Vendor-Trainer</option>
 </select>
 <p><input type="submit" value="Choose"></p>
 </form>
@@ -29,6 +30,9 @@ switch ($_POST['Controller'])
         break;
     case 4:
         include 'worth.php';
+        break;
+    case 5:
+        include 'vendor-trainer.php';
         break;
 }
 echo "\nSelect an option and check the generated code at \"Code.sql\"\n";
