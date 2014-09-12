@@ -5,7 +5,7 @@ while ($executes=mysql_fetch_array($querypickpockets, MYSQL_ASSOC))
 {
 	$querypickpocket=mysql_query("SELECT pickpocketloot FROM creature_template WHERE entry={$executes['entry']};");
 	echo "\n Checking {$executes['entry']}";
-	$data=file_get_contents("http://old.wowhead.com/npc={$executes['entry']}");
+	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']}");
 	if (strpos($data,"'pickpocketing'"))
 	{
 		while ($execute = mysql_fetch_array($querypickpocket, MYSQL_ASSOC)){$pickpocketloot=$execute['pickpocketloot'];}

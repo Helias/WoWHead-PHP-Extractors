@@ -5,7 +5,7 @@ while ($executes=mysql_fetch_array($querys, MYSQL_ASSOC))
 {
 	echo "\n Checking {$executes['entry']}...";
 	$query=mysql_query("SELECT npcflag FROM creature_template WHERE entry={$executes['entry']};");
-	$data=file_get_contents("http://old.wowhead.com/npc={$executes['entry']};");
+	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']};");
 	if (strpos($data,"'sells'"))
 	{
 		while ($execute = mysql_fetch_array($query, MYSQL_ASSOC)){$npcflag=$execute['npcflag'];}

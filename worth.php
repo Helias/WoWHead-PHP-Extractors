@@ -10,7 +10,7 @@ while ($executes=mysql_fetch_array($querygolds, MYSQL_ASSOC))
 {
 	$querygold=mysql_query("SELECT mingold FROM creature_template WHERE entry={$executes['entry']};");
 	echo "\n Checking {$executes['entry']}";
-	$data=file_get_contents("http://old.wowhead.com/npc={$executes['entry']}");
+	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']}");
 	if (strpos($data,"']Worth: ['"))
 	{
 		while ($execute = mysql_fetch_array($querygold, MYSQL_ASSOC)){$gold=$execute['mingold'];}

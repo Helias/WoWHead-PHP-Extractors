@@ -5,7 +5,7 @@ while ($executes=mysql_fetch_array($queryskinloots, MYSQL_ASSOC))
 {
 	$queryskinloot=mysql_query("SELECT skinloot FROM creature_template WHERE entry={$executes['entry']};");
 	echo "\n Checking {$executes['entry']}";
-	$data=file_get_contents("http://old.wowhead.com/npc={$executes['entry']}");
+	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']}");
 	if (strpos($data,"'skinning'"))
 	{
 		while ($execute = mysql_fetch_array($queryskinloot, MYSQL_ASSOC)){$skinloot=$execute['skinloot'];}
