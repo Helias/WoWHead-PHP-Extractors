@@ -1,9 +1,12 @@
 <?php
 include 'connect.php';
+
+//$querys=mysql_query("SELECT entry FROM creature_template WHERE entry IN (SELECT id FROM creature WHERE id IN (SELECT entry FROM creature_template WHERE entry>0 AND npcflag=0)) ORDER BY entry;");
 $querys=mysql_query("SELECT entry FROM creature_template WHERE entry IN (SELECT id FROM creature WHERE id IN (SELECT entry FROM creature_template WHERE entry>0 AND npcflag=0)) ORDER BY entry;");
+
 while ($executes=mysql_fetch_array($querys, MYSQL_ASSOC))
 {
-	echo "\n Checking {$executes['entry']}...";
+	echo "\n Checking {$executes['entry']}";
 	$query=mysql_query("SELECT npcflag FROM creature_template WHERE entry={$executes['entry']};");
 	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']};");
 	if (strpos($data,"'sells'"))
@@ -29,5 +32,5 @@ while ($executes=mysql_fetch_array($querys, MYSQL_ASSOC))
 		}
 	}
 }
-echo "\n \n Check the files \"Code.sql\" \n\n";
+echo "\n";
 ?>
