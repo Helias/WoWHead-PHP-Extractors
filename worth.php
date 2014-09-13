@@ -5,13 +5,14 @@ include 'connect.php';
 $multipler1=1/10; // mingold=gold * $multipler1
 $multipler2=2; // maxgold=gold* $multipler2
 
-$querygolds=mysql_query("SELECT entry,mingold,maxgold FROM creature_template WHERE entry IN (SELECT id FROM creature WHERE id IN (SELECT entry FROM creature_template WHERE entry>0 AND maxgold=0 AND mingold=0)) ORDER BY entry;");
+//$querygolds=mysql_query("SELECT entry,mingold,maxgold FROM creature_template WHERE entry IN (SELECT id FROM creature WHERE id IN (SELECT entry FROM creature_template WHERE entry>$start AND maxgold=0 AND mingold=0)) ORDER BY entry;");
+$querygolds=mysql_query("SELECT entry,mingold,maxgold FROM creature_template WHERE entry > $start AND maxgold=0 AND mingold=0 ORDER BY entry;");
 while ($executes=mysql_fetch_array($querygolds, MYSQL_ASSOC))
 {
 	$querygold=mysql_query("SELECT mingold FROM creature_template WHERE entry={$executes['entry']};");
 	echo "\n Checking {$executes['entry']}";
-	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']}");
-	if (strpos($data,"']Worth: ['"))
+	$data=getHTML("http://www.wowhead.com/npc={$executes['entry']}", 10);
+	if (strpos($data,"\x5DWorth\x3A"))
 	{
 		while ($execute = mysql_fetch_array($querygold, MYSQL_ASSOC)){$gold=$execute['mingold'];}
 		if ($gold=="0")
@@ -27,4 +28,5 @@ while ($executes=mysql_fetch_array($querygolds, MYSQL_ASSOC))
 		}
 	}
 }
+echo "\n";
 ?>

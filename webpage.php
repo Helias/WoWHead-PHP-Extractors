@@ -1,8 +1,3 @@
-<?php
-ini_set('display_errors', 'Off');
-ini_set('display_startup_errors', 'Off');
-error_reporting(0);
-?>
 <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <title>Controller</title>
 <p>Choose an option</p>
