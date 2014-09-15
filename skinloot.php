@@ -8,7 +8,7 @@ while ($executes=mysql_fetch_array($queryskinloots, MYSQL_ASSOC))
 {
 	$queryskinloot=mysql_query("SELECT skinloot FROM creature_template WHERE entry={$executes['entry']};");
 	echo "\n Checking {$executes['entry']}";
-	$data=file_get_contents("http://www.wowhead.com/npc={$executes['entry']}");
+	$data=getHTML("http://www.wowhead.com/npc={$executes['entry']}", 10);
 	if (strpos($data,"tab_skinning"))
 	{
 		while ($execute = mysql_fetch_array($queryskinloot, MYSQL_ASSOC)){$skinloot=$execute['skinloot'];}
@@ -17,6 +17,7 @@ while ($executes=mysql_fetch_array($queryskinloots, MYSQL_ASSOC))
 			$file=fopen("SkinningCode.sql", "a+");
 			fwrite($file, "\n{$executes['entry']}");
 			fclose($file);
+			echo " -- skinloot"; // if the NPC is bugged print this
 		}
 	}
 }

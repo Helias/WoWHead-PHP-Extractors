@@ -15,6 +15,7 @@ while ($executes=mysql_fetch_array($queryloots, MYSQL_ASSOC))
 			$file=fopen("LootCode.sql", "a+");
 			fwrite($file, "\n{$executes['entry']}");
 			fclose($file);
+			echo " -- loot"; // if the NPC is bugged print this
 		}
 	}
 }

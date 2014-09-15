@@ -20,6 +20,7 @@ while ($executes=mysql_fetch_array($queryloots, MYSQL_ASSOC))
 			$file=fopen("All_Loot.txt", "a+");
 			fwrite($file, "\n{$executes['entry']}");
 			fclose($file);
+			echo " -- loot"; // if the NPC is bugged print this
 		}
 	}
 
@@ -30,6 +31,7 @@ while ($executes=mysql_fetch_array($queryloots, MYSQL_ASSOC))
 			$file=fopen("All_Pickpocket.txt", "a+");
 			fwrite($file, "\n{$executes['entry']}");
 			fclose($file);
+			echo " -- pickpocketloot"; // if the NPC is bugged print this
 		}
 	}
 	
@@ -40,6 +42,7 @@ while ($executes=mysql_fetch_array($queryloots, MYSQL_ASSOC))
 			$file=fopen("All_Skinning.txt", "a+");
 			fwrite($file, "\n{$executes['entry']}");
 			fclose($file);
+			echo " -- skinloot"; // if the NPC is bugged print this
 		}
 	}
 }
