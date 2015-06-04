@@ -28,6 +28,9 @@ To use via terminal you can execute the follow command.
 php file.php
 ```
 
+If you have Linux or Mac OS check that the folder of the project and the files have the permissions 777.
+
+
 Why via terminal? Because there you can read the logs.
 
 Well, while the extractors compare the data they will add the entries (with missing data) in some files.txt.
