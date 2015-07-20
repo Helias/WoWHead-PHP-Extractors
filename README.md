@@ -16,7 +16,7 @@ While the loot are in 3 files loot.php, skinloot.php and pickpocketloot.php but 
 
 ## Usage
 
-First of all you must configure it by modify the datas on "connect.php".
+First of all you must configure it by modify the data on "connect.php".
 
 Pay attention about the param '$start = "";' where you should put the entry where the tool start to compare.
 
