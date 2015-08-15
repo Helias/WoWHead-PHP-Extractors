@@ -9,6 +9,7 @@ This project contains extractors about:
 - skinloot
 - vendor
 - trainer
+- creature queststarter
 
 The script to extract the missing vendor and trainer are in the same file php (vendor-trainer.php) to extract them you must use this file.
 
