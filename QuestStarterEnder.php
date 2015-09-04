@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-$queryQuestC = mysql_query("SELECT entry FROM creature_template WHERE entry > $start AND entry NOT IN (SELECT id FROM creature_queststarter WHERE id IN (SELECT id FROM creature_questender)) ORDER BY entry;");
+$queryQuestC = mysql_query("SELECT entry FROM creature_template WHERE entry > $start AND entry NOT IN (SELECT id FROM creature_queststarter) AND entry NOT IN (SELECT id FROM creature_questender) ORDER BY entry;");
 
 while ($executes = mysql_fetch_array($queryQuestC, MYSQL_ASSOC))
 {
