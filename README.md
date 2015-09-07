@@ -10,6 +10,7 @@ This project contains extractors about:
 - vendor
 - trainer
 - creature queststarter / questender
+- gameobject queststarter / questender
 
 The script to extract the missing vendor and trainer are in the same file php (vendor-trainer.php) to extract them you must use this file.
 

@@ -11,7 +11,7 @@ while ($executes = mysql_fetch_array($queryQuestC, MYSQL_ASSOC))
 		$file=fopen("Creature QuestStarterEnder.sql", "a+");
 		fwrite($file, "\n{$executes['entry']}");
 		fclose($file);
-		echo " -- creature_queststarter/ender"; // if the NPC is bugged print this
+		echo " -- creature_queststarter/ender"; // if the NPC is missing print this
 	}
 }
 echo "\n";
