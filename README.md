@@ -2,7 +2,8 @@
 
 ## Extractors
 
-This project contains extractors about:
+This tool compare your database with WoWHead and find the missing data of your database.
+The extractors can check:
 
 - creature loot
 - pickpocketloot
